@@ -1,0 +1,83 @@
+*{
+/*margins and padding of all elements initialized to 0*/
+margin:0px;
+padding:0px;
+}
+header,section,footer,aside,article{
+display:block;
+}
+body{
+/*Properties of the web page*/
+width:100%;
+display:-webkit-box;
+-webkit-box-pack:center;
+}
+#content{
+/*properties of the content div tag*/
+min-width:500px;
+max-width:1200px;
+display:-webkit-box;
+-webkit-box-orient:vertical;
+-webkit-box-flex:1;
+-webkit-box-pack:center;
+}
+header{
+/*header properties*/
+display:-webkit-box;
+-webkit-box-pack:center;
+}
+footer{
+/*footer properties*/
+display:-webkit-box;
+-webkit-box-pack:center;
+}
+#meat{
+/*properties of the main and side sections together*/
+display:-webkit-box;
+-webkit-box-orient:horizontal;
+-webkit-box-flex:1;
+}
+#main_section{
+/*properties of main section of the page*/
+min-width:200px;
+display:-webkit-box;
+-webkit-box-orient:vertical;
+-webkit-box-flex:1;
+}
+#side_section{
+/*properties of the side section of the page*/
+display:-webkit-box;
+-webkit-box-orient:vertical;
+-webkit-box-flex:0;
+}
+h1{
+/*use for page titles*/
+}
+h3{
+/*use for page sub-titles*/
+}
+h5{
+/*use for page footer*/
+}
+.error{
+/*use class="error" for error messages*/
+color:red;
+font-style:italic;
+font-weight:900;
+}
+.success{
+/*use class="success" for success messages*/
+color:green;
+font-style:italic;
+font-weight:900;
+}
+#content,header,#meat,footer,#main_section,#side_section{
+border:solid 1px black;
+padding:10px;	
+}
+/*uncomment the following lines to understand how the site is divided*/
+/*
+article{
+	padding:200px;
+}
+*/
