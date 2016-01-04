@@ -11,6 +11,14 @@
   if(!empty($_POST))
   {
 	$missing=array();
+	if(!$_POST["bno"])
+	{
+		$missing[]="Branch Number";
+	}
+	else
+	{
+		$bno=$_POST["bno"];
+	}
 	if(!$_POST["location"])
 	{
 		$missing[]="Location";
@@ -21,7 +29,7 @@
 	}
 	if(!$_POST["contact"])
 	{
-		$missing[]="Contact";
+		$missing[]="Contact Number";
 	}
 	else
 	{
@@ -29,16 +37,19 @@
 	}
 	if(!empty($missing))
 	{
-		echo 'Enter ';
 		foreach($missing as $miss)
 		{
-			echo $miss . " ";
+			echo '<p class="error" id="important">Enter ' . $miss . '</p><br/>';
 		}
 		echo '<header>'
              . '<h2>Enter Branch Details</h2>'
              . '</header>'
 		     . '<section>'
              . '<form action="BranchAdded.php" method="post">'
+			 . '<div class="bdet" id="bno">'
+	         . '<h4>Enter Branch Number</h4>'
+	         . '<input type="text" name="bno" size="5"/>'
+	         . '</div>'
 	         . '<div class="bdet" id="bloc">'
 	         . '<h4>Enter Branch Location</h4>'
 	         . '<input type="text" name="location" size="40"/>'
@@ -53,9 +64,9 @@
 	}
 	else
 	{
-		$ins='INSERT INTO branch_details(location,contact) VALUES(?,?)';
+		$ins='INSERT INTO branch_details(bno,location,contact) VALUES(?,?,?)';
 		$stm=mysqli_prepare($dbc,$ins);
-		mysqli_stmt_bind_param($stm,"ss",$loc,$con);
+		mysqli_stmt_bind_param($stm,"iss",$bno,$loc,$con);
 		mysqli_stmt_execute($stm);
 		$affected_rows=mysqli_stmt_affected_rows($stm);
 		if($affected_rows==1)
@@ -76,6 +87,10 @@
              . '</header>'
 		     . '<section>'
              . '<form action="BranchAdded.php" method="post">'
+			 . '<div class="bdet" id="bno">'
+	         . '<h4>Enter Branch Number</h4>'
+	         . '<input type="text" name="bno" size="5"/>'
+	         . '</div>'
 	         . '<div class="bdet" id="bloc">'
 	         . '<h4>Enter Branch Location</h4>'
 	         . '<input type="text" name="location" size="40"/>'
