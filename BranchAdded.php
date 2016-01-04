@@ -7,8 +7,8 @@
 </head>
 <body>
   <?php
-  require_once('db_connect')
-  if($_POST)
+  require_once('db_connect.php');
+  if(!empty($_POST))
   {
 	$missing=array();
 	if(!$_POST["location"])
@@ -27,7 +27,7 @@
 	{
 		$con=$_POST["contact"];
 	}
-	if(empty($missing))
+	if(!empty($missing))
 	{
 		echo 'Enter ';
 		foreach($missing as $miss)
@@ -90,8 +90,10 @@
 			
 		}
 	}
- ?>
- <footer>
- </footer>
+  }
+  mysqli_close($dbc);
+  ?>
+  <footer>
+  </footer>
 </body>
 </html>

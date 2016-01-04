@@ -30,7 +30,7 @@
 	 ?>
   </section>
   <section>
-	<a href="BranchAuth.html"><input type="button" value="Add New Branch +"/></a>
+	<a href="BranchAuth.php"><input type="button" value="Add New Branch +"/></a>
   </section>
   <aside>
     <h2> Previous Transactions </h2>
