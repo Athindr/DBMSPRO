@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title> Enter Title Here(title bar) </title>
+  <title>Branch Addition</title>
   <link rel="stylesheet" href="Layout.css">
   <meta charset="utf-8"/>
 </head>
@@ -61,7 +61,9 @@
 	           . '<h4>Enter Contact No.</h4>'
 		       . '<input type="text" name="contact" size="10"/>'
 	           . '</div>'
-	           . '<input type="submit" name="Enter" value="Enter"/>'
+			   . '<div class="bdet">'
+	           . '<button type="submit" name="Enter" value="Enter" class="button" id="bdadd">Enter</button>'
+			   . '</div>'
 	           . '</form>'
                . '</section>'
 			   .'</div>'
@@ -110,7 +112,9 @@
 	           . '<h4>Enter Contact No.</h4>'
 		       . '<input type="text" name="contact" size="10"/>'
 	           . '</div>'
-	           . '<input type="submit" name="Enter" value="Enter"/>'
+	           . '<div class="bdet">'
+	           . '<button type="submit" name="Enter" value="Enter" class="button" id="bdadd">Enter</button>'
+			   . '</div>'
 	           . '</form>'
                . '</section>'
                . '</div>'
@@ -121,7 +125,7 @@
     mysqli_close($dbc);
     ?>
     <footer>
-    <h5> Footer </h5>
+    <h5>Copyright &copy</h5>
     </footer>
   </div>
 </body>

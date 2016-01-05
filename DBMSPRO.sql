@@ -1,8 +1,8 @@
--- MySQL dump 10.13  Distrib 5.5.46, for debian-linux-gnu (x86_64)
+-- MySQL dump 10.13  Distrib 5.6.20, for Win32 (x86)
 --
--- Host: localhost    Database: DBMSPRO
+-- Host: localhost    Database: dbmspro
 -- ------------------------------------------------------
--- Server version	5.5.46-0ubuntu0.14.04.2
+-- Server version	5.6.20
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,6 +14,30 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `branch_auth`
+--
+
+DROP TABLE IF EXISTS `branch_auth`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `branch_auth` (
+  `user` varchar(20) NOT NULL,
+  `pass` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (`user`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `branch_auth`
+--
+
+LOCK TABLES `branch_auth` WRITE;
+/*!40000 ALTER TABLE `branch_auth` DISABLE KEYS */;
+INSERT INTO `branch_auth` VALUES ('Athindr','password');
+/*!40000 ALTER TABLE `branch_auth` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `branch_details`
@@ -36,7 +60,7 @@ CREATE TABLE `branch_details` (
 
 LOCK TABLES `branch_details` WRITE;
 /*!40000 ALTER TABLE `branch_details` DISABLE KEYS */;
-INSERT INTO `branch_details` VALUES (1,'Indiranagar','9803028485'),(2,'Koramangla','9833592911'),(3,'Marathahalli','9405923000'),(4,'JP Nagar','8173949299'),(5,'BTM Layout','9650062311');
+INSERT INTO `branch_details` VALUES (1,'Indiranagar','9803028485'),(2,'Koramangla','9833592911'),(3,'Marathahalli','9405923000'),(4,'JP Nagar','8173949299'),(5,'BTM Layout','9650062311'),(7,'HSR Layout','9108256432'),(8,'Koromangala','9234032251'),(9,'Hosur','8978675330');
 /*!40000 ALTER TABLE `branch_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -239,4 +263,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2015-11-17 22:41:05
+-- Dump completed on 2016-01-05 21:04:27

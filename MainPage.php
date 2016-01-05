@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <title> Enter Title Here </title>
+  <title>Welcome!</title>
   <link rel="stylesheet" href="Layout.css">
   <meta charset="utf-8"/>
 </head>
@@ -18,24 +18,29 @@
 		  </header>
           <?php
 	        require_once('db_connect.php');
-	        $bnames='SELECT location from branch_details';
+	        $bnames='SELECT * from branch_details';
 	        $response=@mysqli_query($dbc,$bnames);
 	        if($response)
 	        {
-		      echo '<form action="SelectSupplier.php" method="post">';
+			  echo '<article>'
+		      . '<form action="SelectSupplier.php" method="post">';
 	          while($row=mysqli_fetch_array($response))
 	          {
-		         echo '<div class="Branch" id=\"' . $row["location"] . '\">'
-	             . '<a href=".">' . $row["location"] . '</a>'
+		         echo '<div class="branch" id=\"' . $row["location"] . '\">'
+	             . '<input type="radio" name="branch" value="' . $row["bno"] . '">' . $row["location"]
 	             . '</div>';
 	          }
-		      echo '</form>';
+			  echo '<button type="submit" value="Select Branch" name="Submit" class="button" id="selbra">Select Branch</button>';
+		      echo '</form>'
+			  . '</article>';
 	        }
 	        mysqli_close($dbc);
 	      ?>
         </section>
         <section>
-	      <a href="BranchAuth.php"><input type="button" value="Add New Branch +"/></a>
+		  <article>
+	        <a href="BranchAuth.php"><button class="button" id="anbra">Add New Branch +</button></a>
+		  </article>
         </section>
 	  </div>
       <div id="side_section">
@@ -47,7 +52,7 @@
 	  </div>
     </div>
     <footer>
-    <p> Enter a footer here </p>
+    <p>Copyright &copy</p>
     </footer>
   </div>
 </body>
