@@ -41,11 +41,25 @@ session_start();
 	  }
 	  else
 	  {
-	     if(!empty($_POST['user'])&& !empty($_POST['pass'])&& isset($_SESSION['supplier']))
+		 if((!empty($_POST['user'])&& !empty($_POST['pass'])&& isset($_SESSION['supplier'])) ||(isset($_SESSION['user'])&& isset($_SESSION['pass'])&&isset($_GET['x'])))
 		   {
-			   $user=$_POST['user'];//storing user name in $user variable
-			   $pass=$_POST['pass'];//storing pass name in $pass variable
-			   $sup= $_SESSION['supplier']; //storing the value of sid into $sup
+			   $flag=0;
+			   if(!empty($_POST['user'])&& !empty($_POST['pass'])&& isset($_SESSION['supplier']))
+                {
+	              echo "First place ";
+				  $user=$_POST['user'];//storing user name in $user variable
+	              $pass=$_POST['pass'];//storing pass name in $pass variable
+	              $sup= $_SESSION['supplier']; //storing the value of sid into $sup
+                  $_SESSION['user']=$user;
+                  $_SESSION['pass']=$pass;
+                }
+               else
+			  {
+			   $flag=1;
+               $user=$_SESSION['user'];
+               $pass=$_SESSION['pass'];
+			   $sup= $_SESSION['supplier'];
+             }
 			   $query="SELECT * FROM `supplier_sid_auth` WHERE user='$user' and pass='$pass' and sid='$sup' ";
 			   $result=mysql_query($query);
 			   if($result)
@@ -60,7 +74,7 @@ session_start();
 				        . '<div id="meat">'
                         . '<div id="main_section">'
 		                . '<section>'
-                        . '<form action="update.php" method="post">';
+						. '<form action="update.php" method="post">';
 						  $row=mysql_num_rows($res);
 						  $_SESSION['rows']=$row;
 						  if($row==0)
@@ -68,6 +82,8 @@ session_start();
 						    echo '<div class="sdet" id="sid">'
 							 . '<header><h4>Update your stock</h4></header>'
 							 . '<article>';
+							 if($flag==1)
+							  echo "<p class='error'>Enter atleast one element's quantity </p>";
 						   echo "<table border='2' style='padding:4px; margin:4px;' >"
 								  ."<tr>"
 								  ."<td style='text-align:center;padding:2px; width:100px; margin:5px;'>iid</td>"

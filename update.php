@@ -17,7 +17,8 @@
             <h3></h3>
 			<?php session_start();
 				  require_once('conn.php');
-				  require_once('db_connect.php');;?>
+				  require_once('db_connect.php');
+			?>
   </header>
   <article>
   <p></p>
@@ -67,15 +68,12 @@
               }
 			  else
 			  {
-				 echo "<p class='error'>Enter atleast element's quantity </p>";
+				  header("Location: SupplierManagerAuth.php?x=0");   
 			  }
-			  
 			   echo  '<a href="SupplierM.php"><button class="button" id="anbra">Go to Supplier Manager</button></a>'
 			   .   '</article>'
 			   .  '<article>'
 			   .  '<a href="MainPage.html"><button class="button" id="anbra">Go to MainPage</button></a>';
-				
-				session_destroy();
 	    }
 		else
 		{
